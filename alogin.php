@@ -1,9 +1,9 @@
 
- <?php 
+ <?php
     session_start();
     if(isset($_SESSION['admin_email'])){
    header('location:dashboard.php');
-      } 
+      }
   if(isset($_COOKIE['remember']) && $_COOKIE['remember']==1){
     $_SESSION['admin_email'] = $_COOKIE['admin_email'];
     header('location:dashboard.php');
@@ -35,12 +35,12 @@
 </head>
 
 <body class="bg-gradient-primary">
-  <?php 
+  <?php
     if(isset($_GET['msg']) && $_GET['msg'] ==1){
       echo 'Unathorized Acess';
     }
    ?>
-  <?php 
+  <?php
     if (isset($_POST['btnLogin']))  {
       // print_r($_POST);
       $err = [];
@@ -56,7 +56,7 @@
       else {
         $err['password']  = 'Enter Password';
       }
-      
+
       if (count($err) == 0) {
       $login=false;
       $connect = new mysqli('localhost','root','','db_motorgadi');
@@ -67,28 +67,28 @@
     $result = $connect->query($sql);
       if($result->num_rows==1){
         $login=true;
-      } 
+      }
       if ($login) {
           $role = 'admin';
-        
+
           $_SESSION['admin_email'] = $email;
           $_SESSION['admin_role'] = $role;
           if(isset($_POST['remember'])){
             setcookie('remember',1,time() + 7*24*60*60);
             setcookie('admin_email',$email,time() + 7*24*60*60);
           }
-          
+
         header("location:dashboard.php");
-        } 
+        }
       else{
             $sql="select * from tbl_admin where email='$email' and password='$password' and status=1 and role='sub_admin'";
       $result = $connect->query($sql);
       if($result->num_rows==1){
         $login=true;
-      } 
+      }
       if ($login) {
         $role = 'sub_admin';
-        
+
           $_SESSION['admin_email'] = $email;
           $_SESSION['admin_role'] = $role;
           if(isset($_POST['remember'])){
@@ -96,13 +96,13 @@
             setcookie('admin_email',$email,time() + 7*24*60*60);
           }
           header("location:dashboard.php");
-         }   
+         }
       else{
         $err['failed']='Login Failed,Re-Enter Valid Username and Password';
       }
       }
-    } 
-  } 
+    }
+  }
   ?>
 
   <div class="container">
@@ -120,12 +120,12 @@
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Welcome Admin!</h1>
                     <span class="text-danger">
-                    <?php 
+                    <?php
                       if(isset($err['failed'])){
                       echo $err['failed'];
                       }
                     ?>
-                    <?php 
+                    <?php
                       if(isset($_GET['message']) && $_GET['message']==1){
                         echo "Login to Continue";
                       }
@@ -140,7 +140,7 @@
                     <div class="form-group">
                       <input type="text" name="email" class="form-control form-control-user" id="exampleInputEmail"
                         aria-describedby="emailHelp" placeholder="Enter Email Address...">
-                        <span class="text-danger"><?php 
+                        <span class="text-danger"><?php
                             if(isset($err['email'])){
                             echo $err['email'];
                             }
@@ -151,7 +151,7 @@
                       <input type="password" name="password" class="form-control form-control-user" id="exampleInputPassword"
                         placeholder="Password">
                       <span class="text-danger">
-                      <?php 
+                      <?php
                       if(isset($err['password'])){
                         echo $err['password'];
                       }
@@ -159,19 +159,19 @@
                     </span>
                     </div>
                     <div class="form-group">
-                
+
                       <div class="custom-control custom-checkbox small">
                         <input type="checkbox" class="custom-control-input" id="customCheck" name="remember">
                         <label class="custom-control-label" for="customCheck">Remember Me</label>
                       </div>
-                      
+
                     </div>
                     <button name="btnLogin" class="btn btn-primary btn-user btn-block">Login</button>
-                      
+
                     <!-- <a href="dashboard.php" class="btn btn-primary btn-user btn-block">
-                      
+
                     </a> -->
-                    
+
                   </form>
                   <!-- FORM End -->
                   <hr>
@@ -184,7 +184,7 @@
                 </div>
               </div>
             </div>
-        
+
 
       </div>
 

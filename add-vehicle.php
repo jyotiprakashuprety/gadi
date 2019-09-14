@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>Motorgadi</title>
-	<link rel="stylesheet" href="addvehicle.css"> 
+	<link rel="stylesheet" href="addvehicle.css">
 </head>
 <body>
 		<h2><center>Add Vehicle</center></h2>
@@ -107,7 +107,7 @@
 								$image_name = uniqid() . '_' . $_FILES['photo']['name'];
 								if (in_array($_FILES['photo']['type'], $types)) {
 									//move file to your folder
-									if(move_uploaded_file($_FILES['photo']['tmp_name'], 
+									if(move_uploaded_file($_FILES['photo']['tmp_name'],
 										'images/' . $image_name)){
 									}else {
 										$err['photo'] = 'File Upload Failed!!';
@@ -157,7 +157,7 @@
 				else{
 					echo"error haha";
 				}
-			}	
+			}
 		}
 	?>
 
@@ -167,10 +167,10 @@
 			<div style="width: 48%;float: left;" class="group">
 			<label for="model">Model *</label>
 			<input type="text" name="model"><br>
-			
+
 			<label for="price">Price(RS) *</label>
 			<input type="number" name="price"><br>
-			<?php 
+			<?php
 			if(isset($err['price'])){
 			echo $err['price'];
 			}
@@ -179,7 +179,7 @@
 
 			<label for="mileage">Mileage (KM/ltr) *</label>
 			<input type="number" name="mileage"><br>
-			<?php 
+			<?php
 			if(isset($err['mileage'])){
 			echo $err['mileage'];
 			}
@@ -187,7 +187,7 @@
 
 			<label for="no_of_seats">Number of Seats *</label>
 			<input type="number" name="no_of_seats"><br>
-			<?php 
+			<?php
 			if(isset($err['no_of_seats'])){
 			echo $err['no_of_seats'];
 			}
@@ -195,14 +195,14 @@
 
 			<label for="air_bag">Number of Air Bag *</label>
 			<input type="number" name="air_bag"><br>
-			<?php 
+			<?php
 			if(isset($err['air_bag'])){
 			echo $err['air_bag'];
 			}
 			?>
 			<label for="ground_clearance">Ground Clearence (Inch)*</label>
 			<input type="number" name="ground_clearance"><br>
-			<?php 
+			<?php
 			if(isset($err['ground_clearance'])){
 			echo $err['ground_clearance'];
 			}
@@ -210,7 +210,7 @@
 
 			<label for="height">Height (Ft)*</label>
 			<input type="number" name="height"><br>
-			<?php 
+			<?php
 			if(isset($err['height'])){
 			echo $err['height'];
 			}
@@ -218,14 +218,14 @@
 
 			<label for="width">Width (Ft)*</label>
 			<input type="number" name="width"><br>
-			<?php 
+			<?php
 			if(isset($err['width'])){
 			echo $err['width'];
 			}
 			?>
 			<label for="length">Length (Ft)*</label>
 			<input type="text" name="length"><br>
-			<?php 
+			<?php
 			if(isset($err['length'])){
 			echo $err['length'];
 			}
@@ -233,7 +233,7 @@
 
 			<label for="weight">Weight (Kg)*</label>
 			<input type="text" name="weight"><br>
-			<?php 
+			<?php
 			if(isset($err['weight'])){
 			echo $err['weight'];
 			}
@@ -241,7 +241,7 @@
 
 			<label for="power">Power (HP)*</label>
 			<input type="number" name="power"><br>
-			<?php 
+			<?php
 			if(isset($err['power'])){
 			echo $err['power'];
 			}
@@ -249,7 +249,7 @@
 
 			<label for="color">Available colour *</label>
 			<input type="text" name="color"><br>
-			<?php 
+			<?php
 			if(isset($err['color'])){
 			echo $err['color'];
 			}
@@ -260,7 +260,7 @@
 			<div class="box">
 			<label for="image">Image</label>
 			<input type="file" name="photo" ><br>
-			<?php 
+			<?php
 			if(isset($err['photo'])){
 			echo $err['photo'];
 			}
@@ -271,7 +271,7 @@
 			<input type="radio" name="gear_type" value="1" > Automatic
 			<input type="radio" name="gear_type" value="0" checked="" >Manual
 			</div>
-			
+
 			<div class="box">
 			<label for="reverse_sensing">Reverse Sensing</label>
 			<input type="radio" name="reverse_sensing" value="1" > Yes
@@ -283,7 +283,7 @@
 			<input type="radio" name="abs" value="1" > Yes
 			<input type="radio" name="abs" value="0" checked="" > No
 			</div>
-			
+
 			<div class="box">
 			<label for="adj_comfort">Adjustable Comfort</label>
 			<input type="radio" name="adj_comfort" value="1" > Yes
@@ -336,11 +336,11 @@
 			</div>
 			<div class="box">
 			<label for="additional">Additional Features</label>
-			<textarea name="additional" id="additional"></textarea>	
+			<textarea name="additional" id="additional"></textarea>
 			</div>
 		</div>
 		<div style="width: 45%;float: left;"><p>*Required to filled</p></div>
-		<div style="width: 55%;float: auto;"><input type="submit" name="submit" value="uplode"></div>
+		<div style="width: 55%;float: auto;"><input type="submit" name="submit" value="Upload"></div>
 	</div>
 	</fieldset>
 	</form>
