@@ -1,0 +1,44 @@
+label{
+	width:290px;
+	display:inline-block;
+
+}
+.group{
+	border: 1px solid #808080;
+	margin-top: :20px;
+	padding:8px;
+
+}
+.group input{
+	width:90%;
+	height: 30px;
+	border: 1px solid #fff;
+}
+textarea{
+	width:90%;
+	height:60px;
+}
+
+.radio{
+border: 1px solid #808080;
+padding: 12px;
+
+}
+.box{
+	border: 1px solid #808080;
+	padding:2px;
+	margin-top:6.8px; 
+}
+input[type=submit] {
+  background-color:#005;
+  color: white;
+  padding: 15px 20px;
+  margin-top: 10px;
+}
+
+fieldset{
+	border: 1px solid #111;
+}
+body{
+	background-color:#D3D3D3;
+}
