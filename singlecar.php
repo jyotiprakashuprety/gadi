@@ -1,7 +1,7 @@
 <?php
-    session_start();
-    echo $_SESSION['model'];
-    ?>
+    $v_id = $_GET['v_id'];
+    echo "$v_id";
+  ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -138,3 +138,7 @@
 </body>
 
 </html>
+<?php
+    session_destroy();
+   
+  ?>

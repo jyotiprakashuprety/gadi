@@ -1,7 +1,7 @@
 <?php
 include 'db_connection.php';
 $conn = OpenCon();
- $sql="SELECT image,model,price,type,power,year,status FROM `tbl_vehicle` WHERE 1";
+ $sql="SELECT v_id,image,model,price,type,power,year,status FROM `tbl_vehicle` WHERE 1";
     $result = $conn->query($sql);
     $data = []; 
     while($row =$result->fetch_assoc())
@@ -89,25 +89,20 @@ $conn = OpenCon();
     </div>
 
     <div class="row">
-      <?php for($i=0;$i<count($data);$i++){ ?>
+      <?php foreach($data as $index => $gadi){ ?>
       <div class="col-lg-4 col-md-6 mb-4">
         <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="img/vehicleimages/<?php echo $data[$i]['image'] ?>" alt=""></a>
+          <a href="#"><img class="card-img-top" src="img/vehicleimages/<?php echo $gadi['image'] ?>" alt=""></a>
           <div class="card-body">
             <h4 class="card-title">    
-            <a href="#">
+            
             <?php
-//if(){
-        
-          $_SESSION['model'] = $data[$i]['model']; 
-            //  header("location:silecar.php"); 
-//}
-    echo $data[$i]['model']; ?>
-     
-    </a>
+            $_SESSION['model']=$gadi['model']; 
+            ?>
+            <a href="singlecar.php?v_id=<?php echo $gadi['v_id'];?>"> <?php echo $gadi['model'];?> </a> 
             </h4>
-            <h5><?php echo $data[$i]['price']?></h5>
-            <p class="card-text">gadi</p>
+            <h5><?php echo $gadi['price']?></h5>
+            <p class="card-text">Brand</p>
           </div>
           
           <div class="card-footer">
@@ -116,9 +111,6 @@ $conn = OpenCon();
         </div>
       </div>
       <?php } ?> 
-
-      
-      
     </div>
     <!-- /.row -->
 
