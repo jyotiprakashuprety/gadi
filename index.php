@@ -15,14 +15,21 @@
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet">
-  <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic'
-    rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
 
   <!-- Plugin CSS -->
   <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
 
   <!-- Theme CSS - Includes Bootstrap -->
   <link href="css/creative.css" rel="stylesheet">
+  <style>
+    input[type="text"]::placeholder {
+
+      /* Firefox, Chrome, Opera */
+      text-align: center;
+    }
+
+  </style>
 
 
 </head>
@@ -33,9 +40,7 @@
   <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
     <div class="container">
       <a class="navbar-brand js-scroll-trigger" href="#page-top"><img style="width: 25%" src="img/motorgadi.png" /></a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-        data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-        aria-label="Toggle navigation">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -71,7 +76,11 @@
         <div class="col-lg-8 align-self-baseline">
           <p class="text-white-75 font-weight-light mb-5">MotorGadi helps you compare and find a car that you
             desire.</p>
-          <a class="btn btn-primary btn-xl js-scroll-trigger" href="#">Find a Car</a>
+          <div class="input-group mb-3">
+
+            <input type="text" class="form-control text-center" placeholder="Search for a Car" aria-label="Username" aria-describedby="basic-addon1">
+          </div>
+
           <a class="btn btn-primary btn-xl js-scroll-trigger" href="allcars.php">Browse Cars</a>
         </div>
       </div>
@@ -86,7 +95,7 @@
           <h2 class="text-white mt-0">We've got what you need!</h2>
           <hr class="divider light my-4">
           <p class="text-white-50 mb-4">In just a few quick steps you can see all the similar cars to yours for sale in the market today!
-Start by entering Year, Make, Model in Browse Cars Section.MotorGadi also has everything you need to boost and run your dealership
+            Start by entering Year, Make, Model in Browse Cars Section.MotorGadi also has everything you need to boost and run your dealership
             in no time.
           </p>
           <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Get Started!</a>
@@ -96,7 +105,7 @@ Start by entering Year, Make, Model in Browse Cars Section.MotorGadi also has ev
   </section>
 
   <!-- Services Section -->
-  <section class="page-section"  id="services">
+  <section class="page-section" id="services">
     <div class="container">
       <h2 class="text-center mt-0">At Your Service</h2>
       <hr class="divider my-4">
@@ -138,41 +147,41 @@ Start by entering Year, Make, Model in Browse Cars Section.MotorGadi also has ev
     <div class="container-fluid p-0">
       <div class="row no-gutters">
         <div class="col-lg-4 col-sm-6">
-          <a class="portfolio-box" >
-            <img class="img-fluid first" >
-          </a>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-          <a class="portfolio-box" >
-            <img class="img-fluid second" >
-          </a>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-          <a class="portfolio-box" >
-            <img class="img-fluid third" >
-          </a>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-          <a class="portfolio-box" >
-            <img class="img-fluid fourth" >
-          </a>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-          <a class="portfolio-box" >
-            <img class="img-fluid fifth" >
+          <a class="portfolio-box">
+            <img class="img-fluid first">
           </a>
         </div>
         <div class="col-lg-4 col-sm-6">
           <a class="portfolio-box">
-            <img class="img-fluid sixth" >
-			</a>
+            <img class="img-fluid second">
+          </a>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <a class="portfolio-box">
+            <img class="img-fluid third">
+          </a>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <a class="portfolio-box">
+            <img class="img-fluid fourth">
+          </a>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <a class="portfolio-box">
+            <img class="img-fluid fifth">
+          </a>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <a class="portfolio-box">
+            <img class="img-fluid sixth">
+          </a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Call to Action Section -->
-<!--  <section class="page-section bg-dark text-white">
+  <!--  <section class="page-section bg-dark text-white">
     <div class="container text-center">
       <h2 class="mb-4">!</h2>
       <a class="btn btn-light btn-xl" href="#">!</a>
@@ -223,52 +232,51 @@ Start by entering Year, Make, Model in Browse Cars Section.MotorGadi also has ev
   <!-- Custom scripts for this template -->
   <script src="js/creative.min.js"></script>
   <script type="text/javascript">
-  	var first = [
-				"img/portfolio/thumbnails/datsun.png",
-				"img/portfolio/thumbnails/ford.png",
-				"img/portfolio/thumbnails/honda.png"
-				];
-	var second=[
-				"img/portfolio/thumbnails/hyundai.png",
-				"img/portfolio/thumbnails/jeep.png",
-				"img/portfolio/thumbnails/kia.png"
-				];
-	var third=[
-				"img/portfolio/thumbnails/mahindra.png",
-				"img/portfolio/thumbnails/mazda.png",
-				"img/portfolio/thumbnails/mitsubishi.png"
-				];
-	var fourth=[
-				"img/portfolio/thumbnails/nissan.png",
-				"img/portfolio/thumbnails/renault.png",
-				"img/portfolio/thumbnails/skoda.png"
-				];
-	var fifth=[
-				"img/portfolio/thumbnails/ssangyong.png",
-				"img/portfolio/thumbnails/subaru.png",
-				"img/portfolio/thumbnails/suzuki.png"
-				];
-	var sixth=[
-				"img/portfolio/thumbnails/tata.png",
-				"img/portfolio/thumbnails/toyota.png",
-				"img/portfolio/thumbnails/volkswagen.png"
-				];
-var size = first.length;
+    var first = [
+      "img/portfolio/thumbnails/datsun.png",
+      "img/portfolio/thumbnails/ford.png",
+      "img/portfolio/thumbnails/honda.png"
+    ];
+    var second = [
+      "img/portfolio/thumbnails/hyundai.png",
+      "img/portfolio/thumbnails/jeep.png",
+      "img/portfolio/thumbnails/kia.png"
+    ];
+    var third = [
+      "img/portfolio/thumbnails/mahindra.png",
+      "img/portfolio/thumbnails/mazda.png",
+      "img/portfolio/thumbnails/mitsubishi.png"
+    ];
+    var fourth = [
+      "img/portfolio/thumbnails/nissan.png",
+      "img/portfolio/thumbnails/renault.png",
+      "img/portfolio/thumbnails/skoda.png"
+    ];
+    var fifth = [
+      "img/portfolio/thumbnails/ssangyong.png",
+      "img/portfolio/thumbnails/subaru.png",
+      "img/portfolio/thumbnails/suzuki.png"
+    ];
+    var sixth = [
+      "img/portfolio/thumbnails/tata.png",
+      "img/portfolio/thumbnails/toyota.png",
+      "img/portfolio/thumbnails/volkswagen.png"
+    ];
+    var size = first.length;
 
-var u = Math.floor(size*Math.random())
-var v = Math.floor(size*Math.random())
-var w = Math.floor(size*Math.random())
-var x = Math.floor(size*Math.random())
-var y = Math.floor(size*Math.random())
-var z = Math.floor(size*Math.random())
+    var u = Math.floor(size * Math.random())
+    var v = Math.floor(size * Math.random())
+    var w = Math.floor(size * Math.random())
+    var x = Math.floor(size * Math.random())
+    var y = Math.floor(size * Math.random())
+    var z = Math.floor(size * Math.random())
 
-$('.first').attr('src',first[u]);
-$('.second').attr('src',second[v]);
-$('.third').attr('src',third[w]);
-$('.fourth').attr('src',fourth[x]);
-$('.fifth').attr('src',fifth[y]);
-$('.sixth').attr('src',sixth[z]);
-
+    $('.first').attr('src', first[u]);
+    $('.second').attr('src', second[v]);
+    $('.third').attr('src', third[w]);
+    $('.fourth').attr('src', fourth[x]);
+    $('.fifth').attr('src', fifth[y]);
+    $('.sixth').attr('src', sixth[z]);
   </script>
 
 </body>

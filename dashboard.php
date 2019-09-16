@@ -1,4 +1,6 @@
 <?php
+    session_start();
+
 include 'db_connection.php';
 $conn = OpenCon();
  $sql="SELECT TABLE_NAME,TABLE_ROWS
@@ -13,10 +15,20 @@ $conn = OpenCon();
      	       $table[]=$tabledata;
  		    }
  }
-     //print_r($table[1]);
+ $email=$_SESSION['admin_email'];
+  $adminsql="SELECT * FROM `tbl_admin` WHERE email='$email'";
+  $adminresult=$conn->query($adminsql);
+  while($row =$adminresult->fetch_assoc())
+  {
+        foreach($row as $admindata)
+      {
+           $admin[]=$admindata;
+      }
+}
+$adminusername=$admin[3];
+
 ?>
 <?php
-    session_start();
     if(!isset($_SESSION['admin_email'])){
    header('location:alogin.php?message=1');
       }
@@ -66,7 +78,7 @@ $conn = OpenCon();
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="index.php">
+        <a class="nav-link" href="dashboard.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -83,7 +95,7 @@ $conn = OpenCon();
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-fw fa-cog"></i>
-          <span>Components</span>
+          <span>SubAdmin</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
@@ -129,7 +141,7 @@ $conn = OpenCon();
 
         <!-- Topbar -->
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-        	<div class="sidebar-brand-text text-center mx-3">Welcome <?php echo $_SESSION['admin_email'] ?>.How are you doing today? </div>
+        	<div class="sidebar-brand-text text-center mx-3">Welcome <?php echo $adminusername ?>.How are you doing today? </div>
           <!-- Sidebar Toggle (Topbar) -->
           <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
             <i class="fa fa-bars"></i>
@@ -141,7 +153,7 @@ $conn = OpenCon();
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION['admin_email'] ?></span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $adminusername ?></span>
                 <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
               </a>
               <!-- Dropdown - User Information -->
