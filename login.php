@@ -6,7 +6,7 @@
       } 
   if(isset($_COOKIE['remember']) && $_COOKIE['remember']==1){
     $_SESSION['user_email'] = $_COOKIE['user_email'];
-    header('location:user_dashboard.php');
+    header('location:allcars.php');
   }
  ?>
 
@@ -45,9 +45,15 @@
     if (isset($_POST['btnLogin']))  {
       // print_r($_POST);
       $err = [];
-      if(isset($_POST['email']) && !empty($_POST['email'])){
-        $email= $_POST['email'];
-      }
+       if(isset($_POST['email']) && !empty($_POST['email'])){
+          $checkemail =($_POST["email"]);
+          if (!filter_var($checkemail, FILTER_VALIDATE_EMAIL)) {
+            $err['email'] ='Invalid email address!!';
+          }
+          else{
+          $email= $_POST['email'];
+          }
+        }
       else {
         $err['email'] = 'Enter Email';
       }
@@ -79,7 +85,7 @@
             setcookie('user_email',$email,time() + 7*24*60*60);
           }
           
-        header("location:user_dashboard.php");
+        header("location:allcars.php");
         }
       else{
         $err['failed']='Login Failed,Re-Enter Valid Username and Password';
@@ -109,11 +115,13 @@
                       echo $err['failed'];
                       }
                     ?>
+
                     <?php 
                       if(isset($_GET['message']) && $_GET['message']==1){
                         echo "Login to Continue";
                       }
                     ?>
+                    <span class="text-success">
                     <?php 
                       if(isset($_GET['message']) && $_GET['message'] ==2){
                         echo 'Signup sucess!! Login to continue';

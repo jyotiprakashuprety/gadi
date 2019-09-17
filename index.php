@@ -1,3 +1,15 @@
+<?php 
+    session_start();
+    if(isset($_SESSION['user_email'])){
+   header('location:allcars.php');
+      } 
+  if(isset($_COOKIE['remember']) && $_COOKIE['remember']==1){
+    $_SESSION['user_email'] = $_COOKIE['user_email'];
+    header('location:allcars.php');
+  }
+ ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -56,6 +68,9 @@
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="register.php">Register</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="login.php">Login</a>
