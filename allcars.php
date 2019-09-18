@@ -2,8 +2,19 @@
 <?php
 include 'db_connection.php';
 $conn = OpenCon();
+if(isset($_GET['a'])){
+  $b=$_GET['a'];
+  $sql="select * from tbl_vehicle where model like '%$b%'";
+  $result = $conn->query($sql);
+ if($result->num_rows==0){
+  header('location:index.php?noresult=1');
+}
+}
+else{
  $sql="SELECT v_id,image,model,price,type,power,year,status FROM `tbl_vehicle`";
+
     $result = $conn->query($sql);
+  }
     $data = []; 
     while($row =$result->fetch_assoc())
      {
@@ -12,12 +23,8 @@ $conn = OpenCon();
      	      //  $cardetails[]=$cardata;
  		    
  }
-?>
-<?php 
-if(isset($_COOKIE['remember']) && $_COOKIE['remember']==1){
-    $_SESSION['user_email'] = $_COOKIE['user_email'];}
 
- ?>
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -67,7 +74,7 @@ if(isset($_COOKIE['remember']) && $_COOKIE['remember']==1){
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="login.php">Login</a>
           </li>
-          <<?php } ?>
+          <?php } ?>
         </ul>
       </div>
     </div>
@@ -181,7 +188,7 @@ else{
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="alogout.php">Logout</a>
+          <a class="btn btn-primary" href="logout.php">Logout</a>
         </div>
       </div>
     </div>

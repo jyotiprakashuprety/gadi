@@ -69,7 +69,7 @@
       if($connect->connect_errno !=0){
         die('database connection error');
       }
-      $sql="select * from tbl_admin where email='$email' and password='$password' and status=1 and role='admin'";
+      $sql="select * from tbl_admin where email='$email' and password='$password' and admin_status=1 and role='admin'";
     $result = $connect->query($sql);
       if($result->num_rows==1){
         $login=true;
@@ -87,7 +87,7 @@
         header("location:dashboard.php");
         }
       else{
-            $sql="select * from tbl_admin where email='$email' and password='$password' and status=1 and role='sub_admin'";
+            $sql="select * from tbl_admin where email='$email' and password='$password' and admin_status=1 and role='sub_admin'";
       $result = $connect->query($sql);
       if($result->num_rows==1){
         $login=true;

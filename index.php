@@ -47,6 +47,19 @@
 </head>
 
 <body id="page-top">
+   <?php 
+    if (isset($_POST['search'])){
+      if(isset($_POST['model']) && !empty($_POST['model'])){
+      $model='';
+     $model= $_POST['model'];
+
+       header("location:allcars.php?a=$model");
+     }
+          else{
+        $err['failed']='Enter Vehicle Model';
+      }
+    }
+    ?>
 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
@@ -91,11 +104,25 @@
         <div class="col-lg-8 align-self-baseline">
           <p class="text-white-75 font-weight-light mb-5">MotorGadi helps you compare and find a car that you
             desire.</p>
+             <form class="user" method="POST" action="<?php echo $_SERVER['PHP_SELF']?>"">
+              <span class="text-danger">
+            <?php 
+                      if(isset($err['failed'])){
+                      echo $err['failed'];
+                      }
+                    ?>
+                    <?php 
+                  if(isset($_GET['noresult']) && $_GET['noresult'] ==1){
+                    echo 'No Match Found';
+                  }
+                 ?>
+              </span>
           <div class="input-group mb-3">
-
-            <input type="text" class="form-control text-center" placeholder="Search for a Car" aria-label="Username" aria-describedby="basic-addon1">
+            
+              <input type="text" name="model" class="form-control" placeholder="Search for a Car" aria-label="Username" aria-describedby="basic-addon1">
+            <button name="search" class="btn btn-primary">Search</button>
           </div>
-
+        </form>
           <a class="btn btn-primary btn-xl js-scroll-trigger" href="allcars.php">Browse Cars</a>
         </div>
       </div>
