@@ -9,14 +9,14 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Register</title>
+  <title>MotorGadi</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="css/sb-admin-2.css" rel="stylesheet">
 
 </head>
 
@@ -106,7 +106,7 @@
            // * contain at least (1) number or special character
            // * contain at least (8) characters in length
             if (!preg_match("/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/",$checkpassword)){
-                $err['password']= "Invalid Password formate!!";
+                $err['password']= "Invalid Password format!!";
             }
             else{
           $password=$_POST['password'];
@@ -145,7 +145,10 @@
       }
   ?>
   <div class="container">
-
+  <a class="navbar-brand js-scroll-trigger py-3" href="index.php"><img style="width: 25%" src="img/motorgadi.png" /></a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
      <div class="row justify-content-center ">
               <div class="col-lg-5">
                 <div class="p-4 card o-hidden border-0 shadow-lg my-5">

@@ -56,7 +56,7 @@ else{
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top py-3" id="mainNav">
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top"><img style="width: 25%" src="img/motorgadi.png" /></a>
+      <a class="navbar-brand js-scroll-trigger" href="index.php"><img style="width: 25%" src="img/motorgadi.png" /></a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -91,7 +91,7 @@ else{
 
           <!-- Topbar Navbar -->
           <div class="container">
-          <a class="navbar-brand js-scroll-trigger" href="#page-top"><img style="width: 25%" src="img/motorgadi.png" /></a>
+          <a class="navbar-brand js-scroll-trigger" href="index.php"><img style="width: 25%" src="img/motorgadi.png" /></a>
           <ul class="navbar-nav ml-auto">
 
             <!-- Nav Item - User Information -->

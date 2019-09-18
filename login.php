@@ -2,7 +2,7 @@
  <?php 
     session_start();
     if(isset($_SESSION['user_email'])){
-   header('location:user_dashboard.php');
+   header('location:allcars.php');
       } 
   if(isset($_COOKIE['remember']) && $_COOKIE['remember']==1){
     $_SESSION['user_email'] = $_COOKIE['user_email'];
@@ -94,9 +94,12 @@
   }
    
   ?>
-
+  
   <div class="container">
-
+  <a class="navbar-brand js-scroll-trigger py-3" href="index.php"><img style="width: 25%" src="img/motorgadi.png" /></a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
     <!-- Outer Row -->
     <div class="row justify-content-center">
 
