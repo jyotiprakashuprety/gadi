@@ -239,6 +239,12 @@ if (!isset($_SESSION['admin_email'])) {
           <i class="fas fa-car"></i>
           <span>Car</span></a>
       </li>
+        <!-- Nav Item - Car-->
+        <li class="nav-item">
+        <a class="nav-link" href="addbrand.php">
+        <i class="fas fa-clipboard-list"></i>
+          <span>Brand</span></a>
+      </li>
 
 
 
@@ -317,7 +323,7 @@ if (!isset($_SESSION['admin_email'])) {
             <div class="modal-dialog modal-lg" role="document">
               <div class="modal-content bg-gradient-light">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Assign Batch</h5>
+                  <h5 class="modal-title" id="exampleModalLabel">Add Car</h5>
                   <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                   </button>

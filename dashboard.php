@@ -100,6 +100,12 @@ $adminusername=$admin[0]['name'];
         <i class="fas fa-car"></i>
           <span>Car</span></a>
       </li>
+       <!-- Nav Item - Car-->
+       <li class="nav-item">
+        <a class="nav-link" href="addbrand.php">
+        <i class="fas fa-clipboard-list"></i>
+          <span>Brand</span></a>
+      </li>
       
       
 
