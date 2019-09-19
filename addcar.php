@@ -16,13 +16,8 @@ while ($row = $result->fetch_assoc()) {
 $email = $_SESSION['admin_email'];
 $adminsql = "SELECT * FROM `tbl_admin` WHERE email='$email'";
 $adminresult = $conn->query($adminsql);
-$admin = [];
-while ($row = $adminresult->fetch_assoc()) {
-  array_push($admin, $row);
-}
-//print_r($admin);
-$adminusername = $admin[0]['name'];
-
+  $a = $adminresult->fetch_assoc();
+$adminusername = $a['name'];
 ?>
 <?php
 if (!isset($_SESSION['admin_email'])) {
@@ -178,8 +173,8 @@ if (!isset($_SESSION['admin_email'])) {
       $status = $_POST['status'];
       $uploaded_at = date('Y-m-d H:i:s');
       //manual
-      $brand_id = '9';
-      $uploaded_by = '1';
+      $brand_id = $a['brand_id'];
+      $uploaded_by = $a['a_id'];
       if (count($err) == 0) {
         $connect = new mysqli('localhost', 'root', '', 'db_motorgadi');
         if ($connect->connect_errno != 0) {
@@ -187,15 +182,14 @@ if (!isset($_SESSION['admin_email'])) {
         }
         $sql = "INSERT INTO `tbl_vehicle` (`v_id`, `brand_id`, `model`, `price`, `image`, `color`, `status`, `mileage`, `no_of_seats`, `air_bag`, `reverse_sensing`, `abs`, `adjustable_comfort`, `air_conditioning`, `shatter_resistance`, `stability_control`, `pre_collision`, `type`, `music _system`, `12v_socket`, `traction_control`, `ground_clearence`, `height`, `width`, `length`, `weight`, `gear_type`, `power`, `additional`, `uploaded_by`, `uploaded at`,`year`) VALUES(
         NULL,'$brand_id','$model','$price','$image_name','$color','$status','$mileage','$no_of_seats','$air_bag','$reverse_sensing','$abs','$adj_comfort','$ac','$shatter_res','$stability','$pre_coll','$type','$music','$socket','$traction','$ground_clearance','$height','$width','$length','$weight','$gear_type','$power','$additional','$uploaded_by','$uploaded_at','$year')";
-        echo "$sql";
-        $connect->query($sql);
+               $connect->query($sql);
         if ($connect->affected_rows == 1 && $connect->insert_id > 0) {
           echo "Insert Sucess";
         } else {
           echo "Insert Failed";
         }
       } else {
-        echo "error haha";
+        echo "File uplode Failed";
       }
     }
   }
@@ -324,7 +318,7 @@ if (!isset($_SESSION['admin_email'])) {
                 </div>
                 <div class="modal-body">
                   <div class="row">
-                    <form class="user container" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
+                    <form class="user container" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST" enctype="multipart/form-data">
                       <fieldset>
                         <div>
                           <div class="form-group">

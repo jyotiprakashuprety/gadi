@@ -184,9 +184,7 @@
                   <div class="text-center">
                     <a class="small" href="forgot-password.php">Forgot Password?</a>
                   </div>
-                  <div class="text-center">
-                    <a class="small" href="register.php">Create an Account!</a>
-                  </div>
+                  
                 </div>
               </div>
             </div>
