@@ -220,8 +220,14 @@ if (!isset($_SESSION['admin_email'])) {
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="allcars.php">
+        <a class="nav-link" href="dashboard.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span></a>
+      </li>
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item active">
+        <a class="nav-link" href="allcars.php">
+          <i class="fas fa-fw fa-users"></i>
           <span>UserView</span></a>
       </li>
 
@@ -236,7 +242,7 @@ if (!isset($_SESSION['admin_email'])) {
       <!-- Nav Item - Car-->
       <li class="nav-item">
         <a class="nav-link" href="addcar.php">
-          <i class="fas fa-users-cog"></i>
+          <i class="fas fa-car"></i>
           <span>Car</span></a>
       </li>
 
