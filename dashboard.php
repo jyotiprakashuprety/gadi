@@ -8,24 +8,22 @@ $conn = OpenCon();
  WHERE TABLE_SCHEMA = 'db_motorgadi'
  GROUP BY TABLE_NAME;";
     $result = $conn->query($sql);
+    $table = [];
    	while($row =$result->fetch_assoc())
      {
-     	    foreach($row as $tabledata)
-     		{
-     	       $table[]=$tabledata;
- 		    }
+     	   array_push($table,$row);
  }
+ //print_r($table);
  $email=$_SESSION['admin_email'];
   $adminsql="SELECT * FROM `tbl_admin` WHERE email='$email'";
   $adminresult=$conn->query($adminsql);
+  $admin = [];
   while($row =$adminresult->fetch_assoc())
   {
-        foreach($row as $admindata)
-      {
-           $admin[]=$admindata;
-      }
+      array_push($admin,$row);
 }
-$adminusername=$admin[3];
+//print_r($admin);
+$adminusername=$admin[0]['name'];
 
 ?>
 <?php
@@ -91,37 +89,16 @@ $adminusername=$admin[3];
         Interface
       </div>
 
-      <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-cog"></i>
-          <span>SubAdmin</span>
-        </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Custom Components:</h6>
-            <a class="collapse-item" href="buttons.php">Buttons</a>
-            <a class="collapse-item" href="cards.php">Cards</a>
-          </div>
-        </div>
+        <!-- Nav Item - Car-->
+        <li class="nav-item">
+        <a class="nav-link" href="addcar.php">
+        <i class="fas fa-users-cog"></i>
+          <span>Car</span></a>
       </li>
+      
+      
 
-      <!-- Nav Item - Utilities Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-          <i class="fas fa-fw fa-wrench"></i>
-          <span>Utilities</span>
-        </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Custom Utilities:</h6>
-            <a class="collapse-item" href="utilities-color.php">Colors</a>
-            <a class="collapse-item" href="utilities-border.php">Borders</a>
-            <a class="collapse-item" href="utilities-animation.php">Animations</a>
-            <a class="collapse-item" href="utilities-other.php">Other</a>
-          </div>
-        </div>
-      </li>
+     
 
 
 
@@ -199,7 +176,7 @@ $adminusername=$admin[3];
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Users</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php print_r($table[9]); ?></div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php print_r($table[4]['TABLE_ROWS']); ?></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-users fa-2x text-gray-300"></i>
@@ -216,7 +193,7 @@ $adminusername=$admin[3];
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Total Admins</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php print_r($table[1]); ?></div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php print_r($table[0]['TABLE_ROWS']); ?></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-user-tie fa-2x text-gray-300"></i>
@@ -235,7 +212,7 @@ $adminusername=$admin[3];
                       <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Total Brands</div>
                       <div class="row no-gutters align-items-center">
                         <div class="col-auto">
-                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php print_r($table[3]); ?></div>
+                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php print_r($table[1]['TABLE_ROWS']); ?></div>
                         </div>
 						</div>
                     </div>
@@ -254,7 +231,7 @@ $adminusername=$admin[3];
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Total Cars</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php print_r($table[11]); ?></div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php print_r($table[5]['TABLE_ROWS']); ?></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-car fa-2x text-gray-300"></i>
