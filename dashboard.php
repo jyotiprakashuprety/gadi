@@ -106,6 +106,11 @@ $adminusername=$admin[0]['name'];
         <i class="fas fa-clipboard-list"></i>
           <span>Brand</span></a>
       </li>
+       <li class="nav-item">
+        <a class="nav-link" href="admin_signup.php">
+        <i class="fas fa-users"></i>
+          <span>Add Sub-admin</span></a>
+      </li>
       
       
 

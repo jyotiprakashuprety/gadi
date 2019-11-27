@@ -149,24 +149,80 @@ else{
             <p>Length: <?php echo $row['length'] ?> Ft</p>
             <p>Weight: <?php echo $row['weight'] ?> KG</p>
             <p>Power: <?php echo $row['power'] ?> HP</p>
-            <p>Gear Type: <?php  ?></p>
-            
+            <p>Gear Type: <?php if($row['gear_type']==0)
+                                    echo "Manual";
+                                else
+                                  echo "Automatic";
+                          ?>
+            </p>
            </div>
            <div class="card-body" style="width: 49%;float: right;">
-           <p>Reverse Sensing</p>
-           <p>ABS</p>
-           <p>Adjustable Comfort</p>
-           <p>Air Conditioning</p>
-           <p>Shatter Resistance</p>
-           <p>Stability Control</p>
-           <p>Pre Collision</p>
-           <p>Music System</p>
-           <p>12v_Socket</p>
-           <p>Traction Control</p>
-           <p>Additional</p>
+           <p>Reverse Sensing:
+              <?php if($row['reverse_sensing']==0)
+                      echo "No";
+                    else
+                      echo "YES";
+              ?>
+           </p>
+           <p>ABS:
+            <?php if($row['abs']==0)
+                      echo "No";
+                    else
+                      echo "YES";
+              ?>
+          </p>
+          <p>Adjustable Comfort:
+          <?php if($row['adjustable_comfort']==0)
+                      echo "No";
+                    else
+                      echo "YES";
+              ?></p>
+          <p>Air Conditioning:
+          <?php if($row['air_conditioning']==0)
+                      echo "No";
+                    else
+                      echo "YES";
+              ?></p>
+          <p>Shatter Resistance:
+          <?php if($row['shatter_resistance']==0)
+                      echo "No";
+                    else
+                      echo "YES";
+              ?></p>
+          <p>Stability Control:
+          <?php if($row['stability_control']==0)
+                      echo "No";
+                    else
+                      echo "YES";
+              ?></p>
+          <p>Pre Collision:
+          <?php if($row['pre_collision']==0)
+                      echo "No";
+                    else
+                      echo "YES";
+              ?></p>
+          <p>Music System:
+          <?php if($row['music _system']==0)
+                      echo "No";
+                    else
+                      echo "YES";
+              ?></p>
+          <p>12v_Socket:
+          <?php if($row['12v_socket']==0)
+                      echo "No";
+                    else
+                      echo "YES";
+              ?></p>
+          <p>Traction Control:
+          <?php if($row['traction_control']==0)
+                      echo "No";
+                    else
+                      echo "YES";
+              ?></p>
+          <p>Additional:<?php echo $row['additional'] ?></p>
            
-           </div>
-         </div>
+          </div>
+        </div>
           <?php 
                 if(isset($_SESSION['user_email'])){
              ?>

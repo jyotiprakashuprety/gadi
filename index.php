@@ -105,7 +105,7 @@
           <p class="text-white-75 font-weight-light mb-5">MotorGadi helps you compare and find a car that you
             desire.</p>
              <form class="user" method="POST" action="<?php echo $_SERVER['PHP_SELF']?>"">
-              <span class="text-danger">
+              <span class="bg-light text-primary">
             <?php 
                       if(isset($err['failed'])){
                       echo $err['failed'];

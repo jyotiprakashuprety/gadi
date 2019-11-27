@@ -1,4 +1,3 @@
-
 <?php
 include 'db_connection.php';
 $conn = OpenCon();
@@ -10,6 +9,14 @@ if(isset($_GET['a'])){
   header('location:index.php?noresult=1');
 }
 }
+elseif (isset($_GET['b'])) {
+  $b=$_GET['b'];
+  $sql="select * from tbl_vehicle where model like '%$b%'";
+  $result = $conn->query($sql);
+ if($result->num_rows==0){
+  header('location:allcars.php?noresult=1');
+}
+ }
 else{
  $sql="SELECT v_id,image,model,price,type,power,year,status FROM `tbl_vehicle`";
 
@@ -21,9 +28,7 @@ else{
        
      	   array_push($data,$row);
      	      //  $cardetails[]=$cardata;
- 		    
- }
-
+ 		 }
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +48,15 @@ else{
 
   <!-- Custom styles for this template -->
   <link href="css/shop-homepage.css" rel="stylesheet">
+  <style>
+    input[type="text"]::placeholder {
 
+      /* Firefox, Chrome, Opera */
+      text-align: center;
+      color: #f00;
+    }
+
+  </style>
 </head>
 
 <body>
@@ -53,13 +66,42 @@ else{
     session_start();
     if(!isset($_SESSION['user_email'])){
  ?>
+  <?php 
+    if (isset($_POST['search'])){
+      if(isset($_POST['model']) && !empty($_POST['model'])){
+      $model='';
+     $model= $_POST['model'];
 
+       header("location:allcars.php?b=$model");
+     }
+          else{
+        $err['failed']='Enter Vehicle Model';
+      }
+    }
+    ?>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top py-3" id="mainNav">
     <div class="container">
       <a class="navbar-brand js-scroll-trigger" href="index.php"><img style="width: 25%" src="img/motorgadi.png" /></a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto my-2 my-lg-0">
+         <form class="user" method="POST" action="<?php echo $_SERVER['PHP_SELF']?>">
+        </span>
+          <div class="input-group mb-3">
+              <input type="text" name="model" class="form-control" placeholder="<?php 
+                      if(isset($err['failed'])){
+                      echo $err['failed'];
+                      }if(isset($_GET['noresult']) && $_GET['noresult'] ==1){
+                         echo 'No Match Found';
+                         }
+                     ?> "aria-label="Username" aria-describedby="basic-addon1">
+            <button name="search" class="btn btn-secondary">Search</button>
+          </div>
+        </form>
+      </ul>
+      </div>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto my-2 my-lg-0">
           <?php if(isset($_SESSION['admin_email'])){ ?>
